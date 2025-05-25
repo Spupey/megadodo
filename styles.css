@@ -1,0 +1,150 @@
+/* Основные стили */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0f0c29, #1a1a4b, #2d2d8f);
+    color: #fff;
+    font-family: 'Kanit', sans-serif;
+    overflow-x: hidden;
+}
+
+.game-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Статистика */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #4d4dff;
+}
+
+/* Область клика */
+.click-area {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.enemy {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.enemy img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.health-bar {
+    width: 100%;
+    height: 10px;
+    background: #333;
+    border-radius: 5px;
+    position: absolute;
+    bottom: -15px;
+}
+
+.health {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #ff5555, #ff0000);
+    border-radius: 5px;
+    transition: width 0.3s;
+}
+
+.click-effect {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* Оружие и прокачка */
+.upgrades, .skills {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 1px solid #4d4dff;
+}
+
+.weapons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.weapon {
+    background: rgba(30, 30, 70, 0.7);
+    border: 1px solid #4d4dff;
+    border-radius: 8px;
+    padding: 10px;
+    width: 120px;
+    transition: all 0.3s;
+}
+
+.weapon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #4d4dff;
+}
+
+.weapon img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+/* Дерево навыков */
+.skill-tree {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.skill {
+    background: rgba(30, 30, 70, 0.7);
+    border: 1px solid #4d4dff;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.skill:hover {
+    background: rgba(50, 50, 120, 0.7);
+}
+
+.skill.locked {
+    filter: grayscale(80%);
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.skill.unlocked {
+    border-color: #00ff00;
+    background: rgba(0, 80, 0, 0.5);
+}
